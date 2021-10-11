@@ -7,7 +7,7 @@ from flask_restful import Api
 
 api = Api(app)
 
-@app.route("/api/login", methods=['GET'])
+@app.route("/login", methods=['GET'])
 def login():
     username = request.args.get("username")
     password = request.args.get("password")
