@@ -1,7 +1,7 @@
 
 DROP DATABASE IF EXISTS FratMembers;
 CREATE DATABASE FratMembers;
-USE frat_members;
+USE FratMembers;
 
 DROP TABLE IF EXISTS members_info;
 CREATE TABLE members_info(
