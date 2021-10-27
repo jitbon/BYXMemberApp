@@ -21,26 +21,6 @@ def login():
         return "Logged in", 200
     return "Incorrect username or password", 401
 
-@app.route("api/members/", methods=['GET'])
-def get_members():
-    # TODO: poll database for all members and return them
-    return "", 200
-
-@app.route("api/members/", methods=['POST'])
-def add_new_member():
-    # TODO: add member to database
-    return "", 200
-
-@app.route("api/members/", methods=['PUT'])
-def update_member():
-    #TODO: update member in database
-    return "", 200
-
-@app.route("api/members", methods=['DELETE'])
-def delete_member():
-    # TODO: delete member from database
-    return "", 200
-
 mydb = mysql.connector.connect(
     host="localhost",
     user="admin",
@@ -48,6 +28,7 @@ mydb = mysql.connector.connect(
     database="mydatabase"
 )
 
+@app.route("api/member/add", methods=['POST'])
 def call_add_member():
     try:
         db_config = read_db_config()
@@ -61,12 +42,14 @@ def call_add_member():
 
     except Error as e:
         print(e)
+        return "Error adding member", 401
 
     finally:
         cursor.close()
         conn.close()
+        return "Member added successfully", 200
 
-
+@app.route("api/member/delete", methods=['DELETE'])
 def call_delete_member():
     try:
         db_config = read_db_config()
@@ -80,11 +63,14 @@ def call_delete_member():
 
     except Error as e:
         print(e)
+        return "Error deleting member", 401
 
     finally:
         cursor.close()
         conn.close()
+        return "Member deleted successfully", 200
 
+@app.route("api/member/find", methods=['GET'])
 def call_find_member():
     try:
         db_config = read_db_config()
@@ -98,7 +84,9 @@ def call_find_member():
 
     except Error as e:
         print(e)
+        return "Error finding member", 401
 
     finally:
         cursor.close()
         conn.close()
+        return "Member found successfully", 200
