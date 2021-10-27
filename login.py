@@ -5,6 +5,9 @@ import mysql.connector
 import flask.scaffold
 flask.helpers._endpoint_from_view_func = flask.scaffold._endpoint_from_view_func
 from flask_restful import Api
+from mysql.connector import MySQLConnection, Error
+from python_mysql_dbconfig import read_db_config
+
 
 api = Api(app)
 
@@ -44,3 +47,58 @@ mydb = mysql.connector.connect(
     password="admin",
     database="mydatabase"
 )
+
+def call_add_member():
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+        cursor = conn.cursor()
+
+        args = ["last name", "first name", "role", "class", num]
+        result_args = cursor.callproc('addMember', args)
+
+        print(result_args)
+
+    except Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+
+def call_delete_member():
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+        cursor = conn.cursor()
+
+        args = ["last name", "first name"]
+        result_args = cursor.callproc('deleteMember', args)
+
+        print(result_args)
+
+    except Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def call_find_member():
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+        cursor = conn.cursor()
+
+        args = ["last name", "first name"]
+        result_args = cursor.callproc('findMember', args)
+
+        print(result_args)
+
+    except Error as e:
+        print(e)
+
+    finally:
+        cursor.close()
+        conn.close()
