@@ -1,7 +1,8 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Member Search{% endblock %} {% block content
+    %}
 
 {% block body %}
-    <h1>Search for member</h1> 
+    <h1>Search for member</h1>
 
 <form action = {{ url_for('member') }} method='post'>
     <input type = 'first-name' = "First Name" placeholder="Enter first name of member"> <br> <br>
