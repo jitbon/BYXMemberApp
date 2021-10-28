@@ -1,5 +1,10 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
+    <br>
     <h1 align="center">{{user.first_name}}'s Profile</h1>
+    <br>
+    <h5 align="center">Email: {{user.email}}</h5>
+    <h5 align="center">Grade: Senior</h5>
+    <h5 align="center">Major: Computer Science</h5>
     
     {% endblock %}
