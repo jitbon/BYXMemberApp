@@ -51,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -88,17 +88,21 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1635301345852" />
-    <state x="733" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1635368889446">
+    <state x="733" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1635399233594">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="733" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1635368889446" />
+    <state x="733" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1635399233594" />
     <state x="740" y="99" key="FileChooserDialogImpl" timestamp="1633930576376">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="740" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1633930576376" />
-    <state x="62" y="0" key="SettingsEditor" timestamp="1635300328381">
+    <state x="62" y="0" key="SettingsEditor" timestamp="1635398622159">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="62" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1635300328381" />
+    <state x="62" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1635398622159" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1635398619418">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1635398619418" />
   </component>
 </project>

@@ -64,10 +64,24 @@ def sign_up():
 
     return render_template("sign_up.html", user=current_user)
 
-@auth.route('/search')
+@auth.route('/search', methods=['GET', 'POST'])
 @login_required
 def search():
-    return render_template("search.html", user=current_user)
+    if request.method == 'GET':
+        email = request.form.get('email')
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Logged in successfully!', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('views.home'))
+            else:
+                flash('Incorrect password, try again.', category='error')
+        else:
+            flash('Could not find user', category='error')
+
+    return render_template("home", user=current_user)
 
     
 @auth.route('/schedule')
