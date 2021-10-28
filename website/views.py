@@ -25,8 +25,9 @@ def home():
     return render_template("home.html", user=current_user)
 
 
-@views.route('/delete-note', methods=['POST'])
-def delete_note():
+@views.route('/schedule', methods=['GET','POST'])
+@login_required
+def schedule():
     note = json.loads(request.data)
     noteId = note['noteId']
     note = Note.query.get(noteId)
