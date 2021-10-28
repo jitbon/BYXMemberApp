@@ -68,3 +68,15 @@ def sign_up():
 @login_required
 def search():
     return render_template("search.html", user=current_user)
+
+    
+@auth.route('/schedule')
+@login_required
+def search():
+    return render_template("schedule.html", user=current_user)
+
+
+@auth.route('/announcements')
+@login_required
+def search():
+    return render_template("announcements.html", user=current_user)
