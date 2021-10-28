@@ -23,22 +23,3 @@ def home():
             flash('Note added!', category='success')
 
     return render_template("home.html", user=current_user)
-
-
-@views.route('/schedule', methods=['GET','POST'])
-@login_required
-def schedule():
-    note = json.loads(request.data)
-    noteId = note['noteId']
-    note = Note.query.get(noteId)
-    if note:
-        if note.user_id == current_user.id:
-            db.session.delete(note)
-            db.session.commit()
-
-    return jsonify({})
-
-@views.route('/search')
-@login_required
-def search():
-    return render_template("search.html", user=current_user)    

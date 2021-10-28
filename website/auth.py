@@ -72,11 +72,11 @@ def search():
     
 @auth.route('/schedule')
 @login_required
-def search():
+def schedule():
     return render_template("schedule.html", user=current_user)
 
 
 @auth.route('/announcements')
 @login_required
-def search():
+def announcements():
     return render_template("announcements.html", user=current_user)
