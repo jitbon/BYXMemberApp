@@ -74,7 +74,7 @@ def search():
         if profile:
             return render_template("home.html", user=profile)
         else:
-            flash('Could not find user', category='error')
+            flash('Error: user not found', category='error')
 
     return render_template("search.html", user=current_user)
 
