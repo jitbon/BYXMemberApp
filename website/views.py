@@ -37,3 +37,8 @@ def schedule():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/search')
+@login_required
+def search():
+    return render_template("search.html", user=current_user)    
