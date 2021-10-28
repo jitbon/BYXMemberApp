@@ -3,13 +3,14 @@ from main import app
 from flask import request
 import mysql.connector
 import flask.scaffold
+
 flask.helpers._endpoint_from_view_func = flask.scaffold._endpoint_from_view_func
 from flask_restful import Api
 from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
 
-
 api = Api(app)
+
 
 @app.route("api/login/", methods=['GET'])
 def login():
@@ -21,12 +22,14 @@ def login():
         return "Logged in", 200
     return "Incorrect username or password", 401
 
+
 mydb = mysql.connector.connect(
     host="localhost",
     user="admin",
     password="admin",
     database="mydatabase"
 )
+
 
 @app.route("api/member/add", methods=['POST'])
 def call_add_member():
@@ -49,6 +52,7 @@ def call_add_member():
         conn.close()
         return "Member added successfully", 200
 
+
 @app.route("api/member/delete", methods=['DELETE'])
 def call_delete_member():
     try:
@@ -69,6 +73,7 @@ def call_delete_member():
         cursor.close()
         conn.close()
         return "Member deleted successfully", 200
+
 
 @app.route("api/member/find", methods=['GET'])
 def call_find_member():
