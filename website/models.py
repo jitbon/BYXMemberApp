@@ -1,4 +1,7 @@
 # store database models
+from datetime import datetime
+from time import time
+import re
 
 from . import db
 from flask_login import UserMixin
@@ -9,3 +12,28 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
+
+def slugify(s):
+    pattern = r'[^\w+]'
+    return re.sub(pattern, '-', s)
+
+class Announcement(db.Model):
+    id = db.Column(db.Integer primary_key=True)
+    title = db.Column(db.String(150))
+    slug = db.Column(db.String(150), unique=True)
+    body =  db.Column(db.Text)
+    create = db.Column(db.DateTime, default=datetime.now())
+    
+    def __init(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.generate_slug()
+        
+    def generate_slug(self):
+        if self.title:
+            self.slug = slugify(self.title)
+        else:
+            self.slug = (str(int(time())))
+    
+    def __repr__(self):
+        return f'<Post id: {self.id}, title: {self.title}'
+        
