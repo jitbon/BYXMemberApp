@@ -4,8 +4,7 @@ from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from . import db
 import json
-from models import *
-from .announcements import PostForm
+from .models import *
 
 
 views = Blueprint('views', __name__)
@@ -20,7 +19,6 @@ announcements = Blueprint('announcements', __name__, template_folder='templates'
 
 @views.route('/create')
 def post_create():
-    announcement = PostForm()
     return render_template('announcements.html')
     
 

@@ -18,7 +18,7 @@ def slugify(s):
     return re.sub(pattern, '-', s)
 
 class Announcement(db.Model):
-    id = db.Column(db.Integer primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150))
     slug = db.Column(db.String(150), unique=True)
     body =  db.Column(db.Text)
