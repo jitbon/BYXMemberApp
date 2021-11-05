@@ -84,8 +84,17 @@ def search():
 def schedule():
     return render_template("schedule.html", user=current_user)
 
+announcements = Blueprint('announcements', __name__, template_folder='templates')
 
-@auth.route('/announcements')
+@auth.route('/announcements', methods=['POST', 'GET'])
 @login_required
-def announcements():
+def announcement_create():
+    form = postForm()
+    
+    if request.method = 'POST':
+        title = request.form.get('title')
+        body = request.form.get('body')
+        
+        try: 
+            announcement = Announcement(title=title, body=body)
     return render_template("announcements.html", user=current_user)
