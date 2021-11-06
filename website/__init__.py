@@ -1,14 +1,26 @@
+# Group 5
+# Jason Kim (jason.j.kim@vanderbilt.edu)
+# Blaine Mitchell (blaine.z.mitchell@vanderbilt.edu)
+# Bo Peng (bo.peng@vanderbilt.edu)
+# Paul Woo (paul.woo@vanderbilt.edu)
+# Homework 3
+
 # make website folder a python package
 
 from flask import Flask, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+
 from os import path
 from flask_login import LoginManager
-from flask_admin import Admin
+
 from flask_migrate import Migrate
 from flask_script import Manager 
-from flask_admin.contrib.sqla import ModelView
+
 from .models import *
+
 from flask_security import login_required
 from flask_security import SQLAlchemyUserDatastore
 from flask_security import Security
@@ -47,7 +59,7 @@ def create_app():
     migrate = Migrate(app, db)
     
     manager.add_command('db', MigrateCommand)
-    
+    # commands for the Admin's access to the app
     admin = Admin(app, 'FlaskApp', url='/', index_view=HomeAdminView(name='Home'))
     admin.add_view(ModelView(Post, db.session))
     
@@ -64,6 +76,7 @@ def create_database(app):
         db.create_all(app=app)
         print('Created Database!')
         
+# Admin permissions, what they can access
 class AdminMixin:
     def isAccessible(self):
         return current_user.has_role('admin')
@@ -72,6 +85,8 @@ class AdminMixin:
         return redirect(url_for('security.login', 
                                 next=request.url))
         
+# Pages will be set up differently for the admin.
+# For example, only admins can make announcements, add/remove members
 class AdminView(AdminMixin, ModelView):
     pass
         

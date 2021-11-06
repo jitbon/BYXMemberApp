@@ -1,3 +1,10 @@
+# Group 5
+# Jason Kim (jason.j.kim@vanderbilt.edu)
+# Blaine Mitchell (blaine.z.mitchell@vanderbilt.edu)
+# Bo Peng (bo.peng@vanderbilt.edu)
+# Paul Woo (paul.woo@vanderbilt.edu)
+# Homework 3
+
 import re
 from main import app
 from flask import request
@@ -11,7 +18,7 @@ from python_mysql_dbconfig import read_db_config
 
 api = Api(app)
 
-
+# Logging in api
 @app.route("api/login/", methods=['GET'])
 def login():
     username = request.args.get("username")
@@ -30,7 +37,7 @@ mydb = mysql.connector.connect(
     database="mydatabase"
 )
 
-
+# Adding member
 @app.route("api/member/add", methods=['POST'])
 def call_add_member():
     try:
