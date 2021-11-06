@@ -1,10 +1,18 @@
-#make website folder a python package
+# make website folder a python package
 
-from flask import Flask
+from flask import Flask, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from flask_admin import Admin
+from flask_migrate import Migrate
+from flask_script import Manager 
+from flask_admin.contrib.sqla import ModelView
+from .models import *
+from flask_security import login_required
+from flask_security import SQLAlchemyUserDatastore
+from flask_security import Security
+from flask_security import current_user
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -35,6 +43,18 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
+    
+    migrate = Migrate(app, db)
+    
+    manager.add_command('db', MigrateCommand)
+    
+    admin = Admin(app, 'FlaskApp', url='/', index_view=HomeAdminView(name='Home'))
+    admin.add_view(ModelView(Post, db.session))
+    
+    #Flask security
+    user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+    security = Security(app, user_datastore)
+    
 
     return app
 
@@ -43,3 +63,27 @@ def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
+        
+class AdminMixin:
+    def isAccessible(self):
+        return current_user.has_role('admin')
+    
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('security.login', 
+                                next=request.url))
+        
+class AdminView(AdminMixin, ModelView):
+    pass
+        
+class HomeAdminView(AdminMixin, AdminIndexView):
+    pass
+
+class BaseModelView(ModelView):
+    def on_model_change(self, form, model, is_created):
+        if is_created:
+            model.generate_slug()
+        return super().on_model_change(form, model, is_created)
+    
+class AnnouncementModelView(AdminMixin, BaseModelView):
+    form_columns = ['title', 'body', 'tags']
+            
