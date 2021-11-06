@@ -85,3 +85,15 @@ def schedule():
     return render_template("schedule.html", user=current_user)
 
 
+@auth.route('/updateProfile', methods=['GET', 'POST'])
+@login_required
+def update_profile():
+    if request.method == 'POST':
+        current_user.first_name = request.form.get('first_name')
+        current_user.last_name = request.form.get('last_name')
+        current_user.email = request.form.get('email')
+
+    return render_template("home.html", user=current_user)
+
+
+# return redirect(url_for('views.home'))

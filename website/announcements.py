@@ -2,7 +2,7 @@ from wtforms import Form, StringField, TextAreaField
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
 
-from models import *
+from .models import *
 
 
 announcements = Blueprint('announcements', __name__)
