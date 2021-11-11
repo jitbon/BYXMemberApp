@@ -27,11 +27,18 @@
                 <a class="nav-item nav-link" id="schedule" href="/schedule">Schedule</a>
                 <a class="nav-item nav-link" id="announcements" href="/announcements">Announcements</a>
                 <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                <a class="nav-item nav-link" id="updateProfile" href="/updateProfile">Update Profile</a>
                 {% else %}
                 <a class="nav-item nav-link" id="login" href="/login">Login</a>
                 <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
                 {% endif %}
             </div>
+
+            <form class="form-inline= my-2 my-lg-0" method="GET">
+                <input class="form-control mr-sm-2" 
+                type="search" placeholder="Search" name="q">
+                <button class="btn btn-outline-success- my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 

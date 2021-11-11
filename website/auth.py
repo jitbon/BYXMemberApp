@@ -1,3 +1,12 @@
+# Group 5
+# Jason Kim (jason.j.kim@vanderbilt.edu)
+# Blaine Mitchell (blaine.z.mitchell@vanderbilt.edu)
+# Bo Peng (bo.peng@vanderbilt.edu)
+# Paul Woo (paul.woo@vanderbilt.edu)
+# Homework 3
+
+# auth.py handles the login/signup functionality, as well as the paths to go after doing so. 
+
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -6,7 +15,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
 
-
+# Loggin into an account
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -26,14 +35,14 @@ def login():
 
     return render_template("login.html", user=current_user)
 
-
+# Logging out
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-
+# Signing up for an account, creating a new one
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -64,7 +73,7 @@ def sign_up():
 
     return render_template("sign_up.html", user=current_user)
 
-
+# Navigation to search page after authorization
 @auth.route('/search', methods=['GET', 'POST'])
 @login_required
 def search():
@@ -78,14 +87,22 @@ def search():
 
     return render_template("search.html", user=current_user)
 
-
+# Navigation to schedule page after authorization
 @auth.route('/schedule')
 @login_required
 def schedule():
     return render_template("schedule.html", user=current_user)
 
-
-@auth.route('/announcements')
+# Handling when the user updates their profile
+@auth.route('/updateProfile', methods=['GET', 'POST'])
 @login_required
-def announcements():
-    return render_template("announcements.html", user=current_user)
+def update_profile():
+    if request.method == 'POST':
+        current_user.first_name = request.form.get('first_name')
+        current_user.last_name = request.form.get('last_name')
+        current_user.email = request.form.get('email')
+
+    return render_template("home.html", user=current_user)
+
+
+# return redirect(url_for('views.home'))
