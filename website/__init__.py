@@ -19,7 +19,6 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_script import Manager 
 
-from .models import *
 
 from flask_security import login_required
 from flask_security import SQLAlchemyUserDatastore
@@ -38,11 +37,9 @@ def create_app():
 
     from .views import views
     from .auth import auth
-    from .announcements import announcements
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
-    app.register_blueprint(announcements, url_prefix='/announcements')
 
     from .models import User
 
@@ -56,17 +53,7 @@ def create_app():
     def load_user(id):
         return User.query.get(int(id))
     
-    migrate = Migrate(app, db)
-    
-    manager.add_command('db', MigrateCommand)
-    # commands for the Admin's access to the app
-    admin = Admin(app, 'FlaskApp', url='/', index_view=HomeAdminView(name='Home'))
-    admin.add_view(ModelView(Post, db.session))
-    
-    #Flask security
-    user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-    security = Security(app, user_datastore)
-    
+
 
     return app
 
@@ -88,9 +75,6 @@ class AdminMixin:
 # Pages will be set up differently for the admin.
 # For example, only admins can make announcements, add/remove members
 class AdminView(AdminMixin, ModelView):
-    pass
-        
-class HomeAdminView(AdminMixin, AdminIndexView):
     pass
 
 class BaseModelView(ModelView):

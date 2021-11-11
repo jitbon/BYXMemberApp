@@ -6,13 +6,15 @@
 # Homework 3
 
 # store database models
+
+from . import db
 from datetime import datetime
 from time import time
 import re
 
 from sqlalchemy.sql.schema import PrimaryKeyConstraint
 
-from . import db
+
 from flask_login import UserMixin
 from flask_security import UserMixin, RoleMixin
 from sqlalchemy.sql import func
@@ -23,7 +25,6 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
-    roles = db.relationshipo('Role', secondary=roles_users, backref=db.backref('users'), lazy='dynamic')
     
 # Roles for each user, relationship with User
 class Role(db.Model, RoleMixin):
