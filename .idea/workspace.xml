@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a2f662f-a576-44c1-be3b-8b0995ef87ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Group5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Group5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/website/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickstart.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickstart.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/schedule.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +87,7 @@
       <workItem from="1636535681057" duration="716000" />
       <workItem from="1636536428486" duration="8085000" />
       <workItem from="1636545709323" duration="504000" />
-      <workItem from="1636583036066" duration="2699000" />
+      <workItem from="1636583036066" duration="8395000" />
     </task>
     <servers />
   </component>

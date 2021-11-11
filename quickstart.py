@@ -60,17 +60,6 @@ def main():
             'dateTime': '2021-11-11T17:00:00',
             'timeZone': 'America/Chicago',
         },
-        'attendees': [
-            {'email': 'lpage@example.com'},
-            {'email': 'sbrin@example.com'},
-        ],
-        'reminders': {
-            'useDefault': False,
-            'overrides': [
-                {'method': 'email', 'minutes': 24 * 60},
-                {'method': 'popup', 'minutes': 10},
-            ],
-        },
     }
 
     event = service.events().insert(calendarId='c_a643d73j9evl7ol4rgll65tlis@group.calendar.google.com', body=event).execute()
