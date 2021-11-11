@@ -2,5 +2,52 @@
     %}
     <br>
     <h1 align="center">Schedule</h1>
-    
+    <iframe src="https://calendar.google.com/calendar/embed?height=560&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&showTitle=0&src=Y19hNjQzZDczajlldmw3b2w0cmdsbDY1dGxpc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border:solid 1px #777" width="800" height="560" frameborder="0" scrolling="no"></iframe>
+    <form method="POST">
+      <div class="form-group">
+        <label for="summary">Event Summary</label>
+        <input
+          type="text"
+          class="form-control"
+          id="summary"
+          name="summary"
+          placeholder="Enter event summary"
+        />
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          name="location"
+          placeholder="Enter location"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <br>
+        <textarea name="description" id="description" cols="50" rows="5" placeholder="Enter event description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="start time">Start Time</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="start time"
+          name="start time"
+        />
+      </div>
+      <div class="form-group">
+        <label for="end time">End Time</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="end time"
+          name="end time"
+        />
+      </div>
+      <button id="submit" type="submit" class="btn btn-primary" style="background-color: black">Schedule</button>
+    </form>
+    <br>
     {% endblock %}
