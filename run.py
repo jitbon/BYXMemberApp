@@ -1,4 +1,4 @@
-from flaskblog import app
+from Group5 import app
 
 if __name__ == '__main__':
     app.run(debug=True)
