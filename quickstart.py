@@ -10,7 +10,7 @@ from google.oauth2.credentials import Credentials
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
-def main():
+def scheduleEvent(summary, location, description, startTime, endTime):
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
@@ -48,23 +48,22 @@ def main():
     #     start = event['start'].get('dateTime', event['start'].get('date'))
     #     print(start, event['summary'])
 
+    startTime += ':00'
+    endTime += ':00'
+
     event = {
-        'summary': 'Google I/O 2015',
-        'location': '800 Howard St., San Francisco, CA 94103',
-        'description': 'A chance to hear more about Google\'s developer products.',
+        'summary': summary,
+        'location': location,
+        'description': description,
         'start': {
-            'dateTime': '2021-11-11T09:00:00',
+            'dateTime': startTime,
             'timeZone': 'America/Chicago',
         },
         'end': {
-            'dateTime': '2021-11-11T17:00:00',
+            'dateTime': endTime,
             'timeZone': 'America/Chicago',
         },
     }
 
     event = service.events().insert(calendarId='c_a643d73j9evl7ol4rgll65tlis@group.calendar.google.com', body=event).execute()
-    print('Event created: %s' % (event.get('htmlLink')))
 
-
-if __name__ == '__main__':
-    main()

@@ -12,6 +12,8 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+from quickstart import scheduleEvent
+from datetime import datetime
 
 auth = Blueprint('auth', __name__)
 
@@ -88,9 +90,23 @@ def search():
     return render_template("search.html", user=current_user)
 
 # Navigation to schedule page after authorization
-@auth.route('/schedule')
+@auth.route('/schedule', methods=['GET', 'POST'])
 @login_required
 def schedule():
+    if request.method == 'POST':
+        summary = request.form.get('summary', type=str)
+        location = request.form.get('location', type=str)
+        description = request.form.get('description', type=str)
+        startTime = request.form.get('start time', type=str)
+        endTime = request.form.get('end time', type=str)
+        startConv = datetime.strptime(startTime, '%Y-%m-%dT%H:%M')
+        endConv = datetime.strptime(endTime, '%Y-%m-%dT%H:%M')
+
+        if startConv > endConv:
+            flash('start time is later than end time', category='error')
+        else:
+            scheduleEvent(summary, location, description, startTime, endTime)
+
     return render_template("schedule.html", user=current_user)
 
 # Handling when the user updates their profile
