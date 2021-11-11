@@ -1,0 +1,44 @@
+{% extends "layout.html" %} {% block title %}Search{% endblock %} {% block content
+    %}
+    <br>
+    <h1 align="center">Member Search</h1>
+    <form method="POST" href="/search">
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input
+          type="name"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Name"
+        />
+      </div>
+      <br />
+      <button id="submit" type="submit" class="btn btn-primary">Find</button>
+      <table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Year</th>
+				<th>Major</th>
+			</tr>
+
+			<!-- here is a for-loop to give us all the socks -->
+			{% for row in user %}
+			<tr>
+				<td>{{ row.username }}</td>
+				<td>{{ row.email }}</td>
+                <td>{{"year"}}</td>
+                <td>{{"major"}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+    {% endblock %}
+
+<!--<form action = {{ url_for('member') }} method='post'>-->
+<!--    <input type = 'first-name' = "First Name" placeholder="Enter first name of member"> <br> <br>-->
+<!--    <input type = 'last-name' = "Last Name" placeholder="Enter last name of member"> <br> <br>-->
+<!--    <input type = 'email' = "Email" placeholder="Enter email of member"> <br> <br>-->
+<!--    <input type = 'submit' placeholder='submit'>-->
+
+<!--</form>-->
