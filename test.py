@@ -188,13 +188,21 @@ def test_update_user_2(client):
     resp = client.post('/update')
     assert resp.status_code == 400
 
-
+# register a user
 def test_register_user(client):
     resp = client.post('/register', json={'username': 'jason',
                                           'email': 'hi@gmail.com',
                                           'password': 'Hello123!',
                                           'password': 'Hello123!'})
     assert resp.status_code == 200
+
+# log the user in
+def test_login_user(client):
+    resp = client.post('/login', json={'email': 'hi@gmail.com',
+                                       'password': 'Hello123!'})
+    assert resp.status_code == 200
+
+
 
 #
 # def test_delete_user(client):
