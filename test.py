@@ -21,7 +21,7 @@ def test_home_bad_http_method(client):
 
 def test_account(client):
     resp = client.post('/account', data='something')
-    assert resp.status_code == 400
+    assert resp.status_code == 302
 
 def test_account_bad_http_method(client):
     resp = client.post('/account')
