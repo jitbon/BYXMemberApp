@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a2f662f-a576-44c1-be3b-8b0995ef87ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Group5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Group5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/site.db" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/site.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +87,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -97,7 +103,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -113,6 +119,9 @@
       <workItem from="1636536428486" duration="8085000" />
       <workItem from="1636545709323" duration="504000" />
       <workItem from="1636583036066" duration="8395000" />
+      <workItem from="1637818320893" duration="3349000" />
+      <workItem from="1637822326145" duration="2465000" />
+      <workItem from="1637825420741" duration="712000" />
     </task>
     <servers />
   </component>
@@ -130,59 +139,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1635301345852">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1635301345852" />
-    <state x="733" y="146" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1635866817183">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="733" y="146" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1635866817183" />
-    <state x="740" y="99" key="FileChooserDialogImpl" timestamp="1633930576376">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="740" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1633930576376" />
-    <state width="1259" height="421" key="GridCell.Tab.0.bottom" timestamp="1636688211575">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1636688211575" />
-    <state width="1259" height="421" key="GridCell.Tab.0.center" timestamp="1636688211575">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1636688211575" />
-    <state width="1259" height="421" key="GridCell.Tab.0.left" timestamp="1636688211574">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1636688211574" />
-    <state width="1259" height="421" key="GridCell.Tab.0.right" timestamp="1636688211575">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1636688211575" />
-    <state width="1259" height="421" key="GridCell.Tab.1.bottom" timestamp="1636688211577">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1636688211577" />
-    <state width="1259" height="421" key="GridCell.Tab.1.center" timestamp="1636688211576">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1636688211576" />
-    <state width="1259" height="421" key="GridCell.Tab.1.left" timestamp="1636688211576">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1636688211576" />
-    <state width="1259" height="421" key="GridCell.Tab.1.right" timestamp="1636688211576">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="421" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1636688211576" />
-    <state x="62" y="0" key="SettingsEditor" timestamp="1635398622159">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="62" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1635398622159" />
-    <state x="319" y="63" width="672" height="678" key="search.everywhere.popup" timestamp="1636687292655">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="319" y="63" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1636687292655" />
   </component>
 </project>
