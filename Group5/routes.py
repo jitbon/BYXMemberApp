@@ -4,24 +4,29 @@ from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from Group5 import app, db, bcrypt, mail
 from Group5.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
-                             PostForm, RequestResetForm, ResetPasswordForm)
+                          PostForm, RequestResetForm, ResetPasswordForm)
 from Group5.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 from datetime import datetime
 from quickstart import scheduleEvent
+from flask_user import roles_required
+
 
 @app.route("/")
 def intro():
     return render_template('intro.html')
 
+
 @app.route("/home")
-def home(): 
+def home():
     return render_template('home.html')
+
 
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
+
 
 @app.route("/announcements")
 @login_required
@@ -30,10 +35,11 @@ def announcements():
     posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
     return render_template('announcements.html', posts=posts)
 
+
 @app.route("/search", methods=['GET'])
 @login_required
 def search():
-    return render_template("search.html", user = User.query.all())
+    return render_template("search.html", user=User.query.all())
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -164,8 +170,8 @@ def delete_post(post_id):
 def user_posts(username):
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    posts = Post.query.filter_by(author=user)\
-        .order_by(Post.date_posted.desc())\
+    posts = Post.query.filter_by(author=user) \
+        .order_by(Post.date_posted.desc()) \
         .paginate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)
 
@@ -213,6 +219,7 @@ def reset_token(token):
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
 
+
 @app.route('/schedule', methods=['GET', 'POST'])
 @login_required
 def schedule():
@@ -232,55 +239,59 @@ def schedule():
 
     return render_template("schedule.html", user=current_user)
 
-#This is the index route where we are going to
-#query on all our user data
+
+# This is the index route where we are going to
+# query on all our user data
 @app.route('/findall')
 def Index():
-    all_data = User.query.all()
- 
-    return render_template("index.html", users = all_data)
- 
-#this route is for inserting data to mysql database via html forms
-@app.route('/insert', methods = ['POST'])
+    if True:
+        all_data = User.query.all()
+
+        return render_template("index.html", users=all_data)
+    else:
+        flash("You need to be an admin to view the admin page.")
+        return redirect('account')
+
+
+# this route is for inserting data to mysql database via html forms
+@app.route('/insert', methods=['POST'])
 def insert():
- 
     if request.method == 'POST':
- 
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
- 
- 
+
         my_data = User(username, email, password)
         db.session.add(my_data)
         db.session.commit()
- 
+
         flash("User Added Successfully")
- 
+
         return redirect(url_for('Index'))
- 
-#this is our update route where we are going to update our user
-@app.route('/update', methods = ['GET', 'POST'])
+
+
+# this is our update route where we are going to update our user
+@app.route('/update', methods=['GET', 'POST'])
 def update():
- 
     if request.method == 'POST':
         my_data = User.query.get(request.form.get('id'))
- 
+
         my_data.username = request.form['username']
         my_data.email = request.form['email']
         my_data.password = request.form['password']
- 
+
         db.session.commit()
         flash("User Updated Successfully")
- 
+
         return redirect(url_for('Index'))
- 
-#This route is for deleting our user
-@app.route('/delete/<id>/', methods = ['GET', 'POST'])
+
+
+# This route is for deleting our user
+@app.route('/delete/<id>/', methods=['GET', 'POST'])
 def delete(id):
     my_data = User.query.get(id)
     db.session.delete(my_data)
     db.session.commit()
     flash("User Deleted Successfully")
- 
+
     return redirect(url_for('Index'))

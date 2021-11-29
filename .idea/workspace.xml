@@ -21,6 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4a2f662f-a576-44c1-be3b-8b0995ef87ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/site.db" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/site.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/templates/account.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +102,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -134,5 +138,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="401" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638157044760">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="401" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1638157044760" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1638163291705">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1638163291705" />
   </component>
 </project>
