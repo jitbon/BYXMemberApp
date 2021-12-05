@@ -4,7 +4,7 @@ from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from Group5 import app, db, bcrypt, mail
 from Group5.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
-                          PostForm, RequestResetForm, ResetPasswordForm)
+                          PostForm, RequestResetForm, ResetPasswordForm, SearchForm)
 from Group5.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -36,10 +36,21 @@ def announcements():
     return render_template('announcements.html', posts=posts)
 
 
-@app.route("/search", methods=['GET'])
+@app.route("/search", methods=['GET', 'POST'])
 @login_required
 def search():
-    return render_template("search.html", user=User.query.all())
+    form = SearchForm()
+    user = User.query.filter_by(username=form.name.data).first()
+    if user:
+        return render_template("search_result.html", user=user)
+    else:
+        return render_template("search.html", user=User.query.all())
+
+
+@app.route("/search_result", methods=['GET', 'POST'])
+@login_required
+def search_result():
+    return render_template('home.html')
 
 
 @app.route("/register", methods=['GET', 'POST'])

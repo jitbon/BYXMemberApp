@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a2f662f-a576-44c1-be3b-8b0995ef87ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Group5/templates/search_result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Group5/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Group5/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Group5/site.db" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/site.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Group5/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/templates/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -65,7 +66,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PSWE/Group5" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -144,6 +145,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="401" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1638157044760" />
+    <state x="706" y="99" key="FileChooserDialogImpl" timestamp="1638698847711">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="706" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1638698847711" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1638163291705">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

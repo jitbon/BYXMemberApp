@@ -65,6 +65,10 @@ class PostForm(FlaskForm):
     submit = SubmitField('Post')
 
 
+class SearchForm(FlaskForm):
+    name = StringField('Title', validators=[DataRequired()])
+
+
 class RequestResetForm(FlaskForm):
     email = StringField('Email',
                         validators=[DataRequired(), Email()])
