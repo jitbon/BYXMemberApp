@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a2f662f-a576-44c1-be3b-8b0995ef87ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Group5/templates/search_result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Group5/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Group5/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Group5/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Group5/site.db" beforeDir="false" afterPath="$PROJECT_DIR$/Group5/site.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -54,6 +52,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1z5o0znIVPk71MirE3OOygjA9zg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -66,8 +72,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PSWE/Group5" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -103,7 +109,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -121,7 +127,11 @@
       <workItem from="1636583036066" duration="8395000" />
       <workItem from="1637818320893" duration="3349000" />
       <workItem from="1637822326145" duration="2465000" />
-      <workItem from="1637825420741" duration="1330000" />
+      <workItem from="1637825420741" duration="1768000" />
+      <workItem from="1637828288006" duration="94000" />
+      <workItem from="1638290039944" duration="348000" />
+      <workItem from="1638291453384" duration="3005000" />
+      <workItem from="1638821912613" duration="5869000" />
     </task>
     <servers />
   </component>
@@ -139,19 +149,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="401" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638157044760">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="401" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1638157044760" />
-    <state x="706" y="99" key="FileChooserDialogImpl" timestamp="1638698847711">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="706" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1638698847711" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1638163291705">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1638163291705" />
   </component>
 </project>
