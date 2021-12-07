@@ -12,7 +12,6 @@ from datetime import datetime
 from quickstart import scheduleEvent
 from flask_user import roles_required
 
-
 @app.route("/")
 def intro():
     db.create_all()
@@ -275,9 +274,9 @@ def insert():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
-        password = request.form['password']
-        major = request.form['major']
-        year = request.form['year']
+        password = "password"
+        major = "CHANGE"
+        year = "CHANGE"
 
         my_data = User(username, email, password, major, year, False)
         db.session.add(my_data)
@@ -296,10 +295,8 @@ def update():
 
         my_data.username = request.form['username']
         my_data.email = request.form['email']
-        my_data.password = request.form['password']
         my_data.major = request.form['major']
         my_data.year = request.form['year']
-
         db.session.commit()
         flash("User Updated Successfully")
 

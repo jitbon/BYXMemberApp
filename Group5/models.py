@@ -3,7 +3,7 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from Group5 import db, login_manager, app, admin
 from flask_login import UserMixin, current_user
 from flask_admin.contrib.sqla import ModelView
-from flask_admin import helpers, expose
+from flask_admin import BaseView, helpers, expose
 from flask import abort
 
 @login_manager.user_loader
@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    password = db.Column(db.String(60), nullable=False)
+    password = db.Column(db.String(60), nullable=False, default='password')
     posts = db.relationship('Post', backref='author', lazy=True)
     major = db.Column(db.String(60), default="CHANGE")
     year = db.Column(db.String(60), default="CHANGE")
@@ -61,9 +61,13 @@ class Controller(ModelView):
             return abort(404)
     def not_auth(self):
         return "You are not authorized to view the admin dashboard."
+    
+class CustomView(ModelView):
+    form_columns = ['username', 'email', 'image_file', 'posts', 'major', 'year', 'is_admin']
+    excluded_list_columns = ['password']
 #
 # # Use User and UserProfile objects
 # db_adapter = SQLAlchemyAdapter(db, UserClass=User, UserProfileClass=Member)
 
-admin.add_view(ModelView(User, db.session))
+admin.add_view(CustomView(User, db.session))
 admin.add_view(Controller(Post, db.session))
