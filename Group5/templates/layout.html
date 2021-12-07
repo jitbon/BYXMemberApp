@@ -37,12 +37,14 @@
                 <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
               {% endif %}
             </div>
+            {% if current_user.is_admin %}
             <div class="navbar-nav">
               {% if current_user.is_authenticated %}
                 <a class="nav-item nav-link" href="{{ url_for('new_post') }}">Create Announcement</a>
                 <a class="nav-item nav-link" href="{{ url_for('Index') }}">Admin</a>
               {% endif %}
             </div>
+            {% endif %}
           </div>
         </div>
       </nav>

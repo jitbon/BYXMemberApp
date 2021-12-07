@@ -23,12 +23,17 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Year</th>
+                        <th>Major</th>
                         <th>Action</th>
+                        <th>Admin?</th>
                     </tr>
                    {% for row in users %}
                     <tr>
                         <td>{{row.username}}</td>
                         <td>{{row.email}}</td>
+                        <td>{{row.year}}</td>
+                        <td>{{row.major}}</td>
                         <td>
                             <a href="/update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
                             <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>

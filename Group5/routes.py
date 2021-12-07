@@ -15,6 +15,7 @@ from flask_user import roles_required
 
 @app.route("/")
 def intro():
+    db.create_all()
     return render_template('intro.html')
 
 
@@ -114,12 +115,16 @@ def account():
             current_user.image_file = picture_file
         current_user.username = form.username.data
         current_user.email = form.email.data
+        current_user.major = form.major.data
+        current_user.year = form.year.data
         db.session.commit()
         flash('Your account has been updated!', 'success')
         return redirect(url_for('account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
+        form.year.data = current_user.year
+        form.major.data = current_user.major
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account',
                            image_file=image_file, form=form)
@@ -271,8 +276,10 @@ def insert():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        major = request.form['major']
+        year = request.form['year']
 
-        my_data = User(username, email, password)
+        my_data = User(username, email, password, major, year, False)
         db.session.add(my_data)
         db.session.commit()
 
@@ -290,6 +297,8 @@ def update():
         my_data.username = request.form['username']
         my_data.email = request.form['email']
         my_data.password = request.form['password']
+        my_data.major = request.form['major']
+        my_data.year = request.form['year']
 
         db.session.commit()
         flash("User Updated Successfully")

@@ -1,13 +1,14 @@
 from datetime import datetime
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-from Group5 import db, login_manager, app
-from flask_login import UserMixin
-
+from Group5 import db, login_manager, app, admin
+from flask_login import UserMixin, current_user
+from flask_admin.contrib.sqla import ModelView
+from flask_admin import helpers, expose
+from flask import abort
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
-
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,12 +17,9 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
-    # User to UserProfile relationship
-    # user_profile_id = db.Column(db.Integer, db.ForeignKey('user_profile.id'), nullable=True, default=None)
-    # user_profile = db.relationship('UserProfile', uselist=False)
-
-    # roles = db.relationship('Role', secondary='user_roles',
-    #                         backref=db.backref('users', lazy='dynamic'))
+    major = db.Column(db.String(60), default="CHANGE")
+    year = db.Column(db.String(60), default="CHANGE")
+    is_admin = db.Column(db.Boolean, default=True)   
 
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)
@@ -39,17 +37,6 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
-
-# class Role(db.Model):
-#     id = db.Column(db.Integer(), primary_key=True)
-#     name = db.Column(db.String(50), unique=True)
-#
-#
-# # Define the UserRoles data model
-# class UserRoles(db.Model):
-#     id = db.Column(db.Integer(), primary_key=True)
-#     user_id = db.Column(db.Integer(), db.ForeignKey('user.id', ondelete='CASCADE'))
-#     role_id = db.Column(db.Integer(), db.ForeignKey('role.id', ondelete='CASCADE'))
 class UserProfile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # Extra model fields
@@ -63,30 +50,20 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    # # Define the Role data model
-    # class Role(db.Model):
-    #     id = db.Column(db.Integer(), primary_key=True)
-    #     name = db.Column(db.String(50), unique=True)
-    #
-    # # Define the UserRoles data model
-    # class UserRoles(db.Model):
-    #     id = db.Column(db.Integer(), primary_key=True)
-    #     user_id = db.Column(db.Integer(), db.ForeignKey('user.id', ondelete='CASCADE'))
-    #     role_id = db.Column(db.Integer(), db.ForeignKey('role.id', ondelete='CASCADE'))
-
-    #
-    # class Role(db.Model):
-    #     __tablename__ = 'roles'
-    #     id = db.Column(db.Integer(), primary_key=True)
-    #     name = db.Column(db.String(50), unique=True)
-    #
-    #
-    # class UserRoles(db.Model):
-    #     year = db.Column(db.String(120), default='')
-    #     major = db.Column(db.String(120), default='')
-
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+class Controller(ModelView):
+    def is_accessible(self):
+        if (current_user.is_admin == True):
+            return current_user.is_authenticated
+        else:
+            return abort(404)
+    def not_auth(self):
+        return "You are not authorized to view the admin dashboard."
 #
 # # Use User and UserProfile objects
 # db_adapter = SQLAlchemyAdapter(db, UserClass=User, UserProfileClass=Member)
+
+admin.add_view(ModelView(User, db.session))
+admin.add_view(Controller(Post, db.session))
