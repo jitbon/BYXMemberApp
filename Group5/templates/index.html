@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% if current_user.is_admin %}
 {% block content %}
 <div class="container">
     <div class="row">
@@ -108,4 +109,7 @@
         </div>
     </div>
 </div>
+{% else %}
+<title> Sorry! You can't access his page. </admin>
+{% endif %}
 {% endblock content %}
