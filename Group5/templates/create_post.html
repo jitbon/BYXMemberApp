@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}Create announcement{% endblock %}
 {% block content %}
+{% if current_user.is_admin %}
 <div class="content-section">
     <form method="POST" action="">
         {{ form.hidden_tag() }}
@@ -38,4 +39,7 @@
         </div>
     </form>
 </div>
+{% else %}
+<h1> Sorry! You can't access his page. </h1>
+{% endif %}
 {% endblock content %}
